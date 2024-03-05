@@ -1,30 +1,23 @@
-const { useState } = require("react");
+import './App.css';
 
-const useInput = (initialView, validator) =>{
-  const [value, setValue] = useState(initialView);
-  const onChange = event =>{
-    const {
-      targer:{value}
-    } = event;
-    let willUpdate = true;
-    if (typeof validator === "function"){
-      willUpdate = validator(value)
-    }
-    if (willUpdate){
-      setValue(value)
-    }
-  };
-  return [value, onChange]
-}
-
-const App =()=>{
-  const maxLen = value => value.length < 10;
-  const name = useInput("Mr.", maxLen);
-  return(
-    <div>
-      <input placeholder="Name" {...name} />
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
